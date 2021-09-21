@@ -10,22 +10,10 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     
-                    <div class="flex flex-col m-4">
-                        <category name="Scene">
-                            <action>Scene</action>
-                            <action>Safety</action>
-                        </category>
-                        <category name="test">
-                            <action>Aktion 0</action>
-                            <category name="test2">
-                                <action>Aktion 1</action>
-                                <action>Aktion 2</action>
-                            </category>
-                            <action>Aktion 3</action>
-                            <action>Aktion 4</action>
-                        </category>
+                    <div class="m-4">
+                        <jet-button type="button" @click="items.push({type:'category', name: 'blabla', children:[{type:'action', name:'bla'}]})">Kategorie hinzufügen</jet-button>
+                        <jet-button type="button" @click="items.push({type:'action', name:'bla'})">Aktion hinzufügen</jet-button>
                     </div>
-
                     <div class="flex flex-col m-4">
                         <nested :children='items'>
                         </nested>
@@ -40,6 +28,7 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import Welcome from '@/Jetstream/Welcome.vue'
+    import JetButton from '@/Jetstream/Button'
     import Category from '@/Components/Case/Category.vue'
     import Action from '@/Components/Case/Action.vue'
     import Nested from '@/Components/Nested.vue'
@@ -49,7 +38,8 @@
             Welcome,
             Category,
             Action,
-            Nested
+            Nested,
+            JetButton
         },
         data() {
             return {
